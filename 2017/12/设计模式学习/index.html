@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>设计模式学习 | 流云唯变</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一切为了更好的编程 意义在于方便交流其实是为了更好的装逼    学习资料只是个菜谱。要做好这道菜，还需要认真理解，多加实践。   一、概述与分类1. 什么是设计模式设计模式是一些编程方式，用来解决某一类特殊问题的一种最佳实践。 就是对编程手法的一种特定总结 2. 分类 创建型模式 结构型模式 行为型模式  2.1 创建型 ： 创建对象 构建者模式 工厂模式 原型模式 单例模式    2.2 结构">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式学习">
+<meta property="og:url" content="http://daibo.live/2017/12/设计模式学习/index.html">
+<meta property="og:site_name" content="流云唯变">
+<meta property="og:description" content="一切为了更好的编程 意义在于方便交流其实是为了更好的装逼    学习资料只是个菜谱。要做好这道菜，还需要认真理解，多加实践。   一、概述与分类1. 什么是设计模式设计模式是一些编程方式，用来解决某一类特殊问题的一种最佳实践。 就是对编程手法的一种特定总结 2. 分类 创建型模式 结构型模式 行为型模式  2.1 创建型 ： 创建对象 构建者模式 工厂模式 原型模式 单例模式    2.2 结构">
+<meta property="og:updated_time" content="2017-12-18T06:26:27.447Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式学习">
+<meta name="twitter:description" content="一切为了更好的编程 意义在于方便交流其实是为了更好的装逼    学习资料只是个菜谱。要做好这道菜，还需要认真理解，多加实践。   一、概述与分类1. 什么是设计模式设计模式是一些编程方式，用来解决某一类特殊问题的一种最佳实践。 就是对编程手法的一种特定总结 2. 分类 创建型模式 结构型模式 行为型模式  2.1 创建型 ： 创建对象 构建者模式 工厂模式 原型模式 单例模式    2.2 结构">
+  
+  
+    <link rel="icon" href="/bitbug_favicon.ico">
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://daibo.live"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/2017/04/about-me">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">流云唯变</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-设计模式学习" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-meta">
+        <a href="/2017/12/设计模式学习/" class="article-date">
+  <time datetime="2017-12-15T03:05:40.000Z" itemprop="datePublished">2017-12-15</time>
+</a>
+        
+    </div>
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+  
+    <h1 class="article-title" itemprop="name">
+      设计模式学习
+    </h1>
+  
+
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+            <!-- 显示摘要, 在文章内容中用 --more-- 来划分 -->
+            
+                <!-- Table of Contents -->
+                <!-- 显示目录 -->
+                
+                <!-- contents -->
+                <p> <strong>一切为了更好的编程</strong><br> <em>意义在于方便交流</em><br><code>其实是为了更好的装逼</code>  </p>
+<blockquote>
+<p>学习资料只是个菜谱。要做好这道菜，还需要认真理解，多加实践。</p>
+</blockquote>
+<hr>
+<h3 id="一、概述与分类"><a href="#一、概述与分类" class="headerlink" title="一、概述与分类"></a>一、概述与分类</h3><h4 id="1-什么是设计模式"><a href="#1-什么是设计模式" class="headerlink" title="1. 什么是设计模式"></a>1. 什么是设计模式</h4><p>设计模式是一些编程方式，用来解决某一类特殊问题的一种最佳实践。</p>
+<p><code>就是对编程手法的一种特定总结</code></p>
+<h4 id="2-分类"><a href="#2-分类" class="headerlink" title="2. 分类"></a>2. 分类</h4><ul>
+<li>创建型模式</li>
+<li>结构型模式</li>
+<li>行为型模式</li>
+</ul>
+<h5 id="2-1-创建型-：-创建对象"><a href="#2-1-创建型-：-创建对象" class="headerlink" title="2.1 创建型 ： 创建对象"></a>2.1 创建型 ： 创建对象</h5><ol>
+<li>构建者模式</li>
+<li>工厂模式</li>
+<li>原型模式</li>
+<li>单例模式  </li>
+</ol>
+<h5 id="2-2-结构型模式-：-帮助我们创造和使用复杂的结构"><a href="#2-2-结构型模式-：-帮助我们创造和使用复杂的结构" class="headerlink" title="2.2 结构型模式 ： 帮助我们创造和使用复杂的结构"></a>2.2 结构型模式 ： 帮助我们创造和使用复杂的结构</h5><ol>
+<li>适配器模式</li>
+<li>桥接模式</li>
+<li>组合模式</li>
+<li>装饰模式</li>
+<li>外观模式</li>
+<li>代理模式</li>
+</ol>
+<h5 id="2-3-行为型模式-：-描述了对象在系统中的通信方式和程序的逻辑控制流"><a href="#2-3-行为型模式-：-描述了对象在系统中的通信方式和程序的逻辑控制流" class="headerlink" title="2.3 行为型模式 ： 描述了对象在系统中的通信方式和程序的逻辑控制流"></a>2.3 行为型模式 ： 描述了对象在系统中的通信方式和程序的逻辑控制流</h5><ol>
+<li>命令模式</li>
+<li>迭代器模式</li>
+<li>观察者模式</li>
+<li>状态模式</li>
+<li>策略模式</li>
+<li>模板方法模式</li>
+</ol>
+<h4 id="3-学习细则"><a href="#3-学习细则" class="headerlink" title="3. 学习细则"></a>3. 学习细则</h4><h5 id="1-单例模式"><a href="#1-单例模式" class="headerlink" title="1. 单例模式"></a>1. 单例模式</h5><blockquote>
+<p>单例模式在程序设计中非常的常见，一般来说，某些类，我们希望在程序运行期间有且只有一个实例，原因可能是该类的创建需要消耗系统过多的资源、花费很多的时间，或者业务上客观就要求了只能有一个实例。</p>
+<p>常用场景：我们的应用程序有一些配置文件，我们希望只在系统启动的时候读取这些配置文件，并将这些配置保存在内存中，以后在程序中使用这些配置文件信息的时候不必再重新读取。</p>
+</blockquote>
+<h6 id="1-1-定义："><a href="#1-1-定义：" class="headerlink" title="1.1. 定义："></a>1.1. 定义：</h6><pre><code>由于某种需要，要保证一个类在程序的生命周期当中只有一个实例，并且提供该实例的全局访问方法。
+</code></pre><h6 id="1-2-结构："><a href="#1-2-结构：" class="headerlink" title="1.2. 结构："></a>1.2. 结构：</h6><p>　　一般包含三个要素：</p>
+<p>　　1.私有的静态的实例对象 private static instance</p>
+<p>　　2.私有的构造函数（保证在该类外部，无法通过new的方式来创建对象实例） private Singleton(){}</p>
+<p>　　3.公有的、静态的、访问该实例对象的方法 public static Singleton getInstance(){}</p>
+<h6 id="1-3-分类："><a href="#1-3-分类：" class="headerlink" title="1.3. 分类："></a>1.3. 分类：</h6><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>概念</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>懒汉</td>
+<td>应用刚启动的时候，并不创建实例，当外部调用该类的实例或者该类实例方法的时候，才创建该类的实例, 以时间换空间</td>
+<td>实例在被使用的时候才被创建，可以节省系统资源，体现了延迟加载的思想,可以尽可能的节省系统资源</td>
+<td>由于系统刚启动时且未被外部调用时，实例没有创建；如果一时间有多个线程同时调用LazySingleton.getLazyInstance()方法很有可能会产生多个实例。　　　　　　　　　也就是说下面的懒汉式在多线程下，是不能保持单例实例的唯一性的，要想保证多线程下的单例实例的唯一性得用同步，同步会导致多线程下由于争夺锁资源，运行效率不高。</td>
+</tr>
+<tr>
+<td>饥汉</td>
+<td>应用刚启动的时候，不管外部有没有调用该类的实例方法，该类的实例就已经创建好了。以空间换时间</td>
+<td>写法简单，在多线程下也能保证单例实例的唯一性，不用同步，运行效率高</td>
+<td>在外部没有使用到该类的时候，该类的实例就创建了，若该类实例的创建比较消耗系统资源，并且外部一直没有调用该实例，那么这部分的系统资源的消耗是没有意义的。</td>
+</tr>
+</tbody>
+</table>
+<h6 id="1-4-代码"><a href="#1-4-代码" class="headerlink" title="1.4 代码"></a>1.4 代码</h6><ol>
+<li><p>懒汉型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">package singleton;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 懒汉式单例类</div><div class="line"> */</div><div class="line">public class LazySingleton &#123;</div><div class="line"></div><div class="line">    //私有化构造函数，防止在该类外部通过new的形式创建实例</div><div class="line">    private LazySingleton() &#123;</div><div class="line">        System.out.println(&quot;生成LazySingleton实例一次！&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //私有的、静态的实例，设置为私有的防止外部直接访问该实例变量，设置为静态的，说明该实例是LazySingleton类型的唯一的</div><div class="line">    //若开始时，没有调用访问实例的方法，那么实例就不会自己创建</div><div class="line">    private static LazySingleton lazyInstance = null;</div><div class="line"></div><div class="line">    //公有的访问单例实例的方法，当外部调用访问该实例的方法时，实例才被创建</div><div class="line">    public static LazySingleton getLazyInstance() &#123;</div><div class="line">        //若实例还没有创建，则创建实例；若实例已经被创建了，则直接返回之前创建的实例,即不会返回2个实例</div><div class="line">        if (lazyInstance == null) &#123;</div><div class="line">            lazyInstance = new LazySingleton();</div><div class="line">        &#125;</div><div class="line">        return lazyInstance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>饥汉型</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">package singleton;</div><div class="line"></div><div class="line">public class NoLazySingleton &#123;</div><div class="line"></div><div class="line">    //私有化构造函数，防止在该类外部通过new的形式创建实例</div><div class="line">    private NoLazySingleton()&#123;</div><div class="line">        System.out.println(&quot;创建NoLazySingleton实例一次！&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //私有的、静态的实例，设置为私有的防止外部直接访问该实例变量，设置为静态的，说明该实例是LazySingleton类型的唯一的</div><div class="line">    //当系统加载NoLazySingleton类文件的时候，就创建了该类的实例</div><div class="line">    private static NoLazySingleton instance = new NoLazySingleton();</div><div class="line"></div><div class="line">    //公有的访问单例实例的方法</div><div class="line">    public static NoLazySingleton getInstance()&#123;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="1-5-多线程下的问题展示"><a href="#1-5-多线程下的问题展示" class="headerlink" title="1.5. 多线程下的问题展示"></a>1.5. 多线程下的问题展示</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">package singleton;</div><div class="line"></div><div class="line">public class SingletonTest &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        for (int i = 0; i &lt; 10; i++) &#123;</div><div class="line">             new Thread()&#123;</div><div class="line">                @Override</div><div class="line">                public void run() &#123;</div><div class="line">                    LazySingleton.getLazyInstance();</div><div class="line">                &#125;</div><div class="line">            &#125;.start();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>就说2个线程同时访问上面的懒汉式单例，现在有两个线程A和B同时访问LazySingleton.getLazyInstance()方法。</p>
+<p>假设A先得到CPU的时间切片，A执行到21行处 if (lazyInstance == null) 时，由于lazyInstance 之前并没有实例化，所以lazyInstance == null为true,在还没有执行22行实例创建的时候</p>
+<p>此时CPU将执行时间分给了线程B，线程B执行到21行处 if (lazyInstance == null) 时，由于lazyInstance 之前并没有实例化，所以lazyInstance == null为true，线程B继续往下执行实例的创建过程，线程B创建完实例之后，返回。</p>
+<p>此时CPU将时间切片分给线程A，线程A接着开始执行22行实例的创建，实例创建完之后便返回。由此看线程A和线程B分别创建了一个实例（存在2个实例了），这就导致了单例的失效。</p>
+</blockquote>
+<p>线程安全的懒汉代码示例1：<br>要用锁机制，线程阻塞<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">package singleton;</div><div class="line"></div><div class="line"></div><div class="line">public class SafeLazySingleton &#123;</div><div class="line"></div><div class="line">    private SafeLazySingleton()&#123;</div><div class="line">        System.out.println(&quot;生成SafeLazySingleton实例一次！&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private static SafeLazySingleton instance = null;</div><div class="line">　　 //1.对整个访问实例的方法进行同步</div><div class="line">    public synchronized static SafeLazySingleton getInstance()&#123;</div><div class="line">        if (instance == null) &#123;</div><div class="line">            instance = new SafeLazySingleton();</div><div class="line">        &#125;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line">　　　　//2.对必要的代码块进行同步</div><div class="line">    public static SafeLazySingleton getInstance1()&#123;</div><div class="line">        if (instance == null) &#123;</div><div class="line">            synchronized (SafeLazySingleton.class)&#123;</div><div class="line">                if (instance == null) &#123;</div><div class="line">                    instance = new SafeLazySingleton();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>线程安全的懒汉代码示例2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">package singleton;</div><div class="line"></div><div class="line">public class GracefulSingleton &#123;</div><div class="line">    private GracefulSingleton()&#123;</div><div class="line">        System.out.println(&quot;创建GracefulSingleton实例一次！&quot;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">      //类级的内部类，也就是静态的成员式内部类，该内部类的实例与外部类的实例没有绑定关系，而且只有被调用到才会装载，从而实现了延迟加载</div><div class="line">    private static class SingletonHoder&#123;</div><div class="line">　　　　　　　//静态初始化器，由JVM来保证线程安全</div><div class="line">        private static GracefulSingleton instance = new GracefulSingleton();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static GracefulSingleton getInstance()&#123;</div><div class="line">        return SingletonHoder.instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>使用一个内部类来维护单例类的实例，当GracefulSingleton被加载的时候，其内部类并不会被初始化，所以可以保证当GracefulSingleton被装载到JVM的时候，不会实例化单例类，当外部调用getInstance方法的时候，才会加载内部类SingletonHoder，从而实例化instance,同时由于实例的建立是在类初始化时完成的，所以天生对多线程友好，getInstance方法也不需要进行同步。</p>
+</blockquote>
+<h6 id="1-6-扩展"><a href="#1-6-扩展" class="headerlink" title="1.6. 扩展"></a>1.6. 扩展</h6><p>单例模式本质上是控制单例类的实例数量只有一个，有些时候我们可能想要某个类特定数量的实例，这种情况可以看做是单例模式的一种扩展情况。比如我们希望下面的类SingletonExtend只有三个实例，我们可以利用Map来缓存这些实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">package singleton;</div><div class="line"></div><div class="line">import java.util.HashMap;</div><div class="line">import java.util.Map;</div><div class="line"></div><div class="line">public class SingletonExtend &#123;</div><div class="line">    //装载SingletonExtend实例的容器</div><div class="line">    private static final Map&lt;String,SingletonExtend&gt; container = new HashMap&lt;String, SingletonExtend&gt;();</div><div class="line">    //SingletonExtend类最多拥有的实例数量</div><div class="line">    private static final int MAX_NUM = 3;</div><div class="line">    //实例容器中元素的key的开始值</div><div class="line">    private static String CACHE_KEY_PRE = &quot;cache&quot;;</div><div class="line">    private static int initNumber = 1;</div><div class="line">    private SingletonExtend()&#123;</div><div class="line">        System.out.println(&quot;创建SingletonExtend实例1次！&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //先从容器中获取实例，若实例不存在，在创建实例，然后将创建好的实例放置在容器中</div><div class="line">    public static SingletonExtend getInstance()&#123;</div><div class="line">        String key = CACHE_KEY_PRE+ initNumber;</div><div class="line">        SingletonExtend singletonExtend = container.get(key);</div><div class="line">        if (singletonExtend == null) &#123;</div><div class="line">            singletonExtend = new SingletonExtend();</div><div class="line">            container.put(key,singletonExtend);</div><div class="line">        &#125;</div><div class="line">        initNumber++;</div><div class="line">        //控制容器中实例的数量</div><div class="line">        if (initNumber &gt; 3) &#123;</div><div class="line">            initNumber = 1;</div><div class="line">        &#125;</div><div class="line">        return singletonExtend;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        SingletonExtend instance = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance1 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance2 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance3 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance4 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance5 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance6 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance7 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance8 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance9 = SingletonExtend.getInstance();</div><div class="line">        System.out.println(instance);</div><div class="line">        System.out.println(instance1);</div><div class="line">        System.out.println(instance2);</div><div class="line">        System.out.println(instance3);</div><div class="line">        System.out.println(instance4);</div><div class="line">        System.out.println(instance5);</div><div class="line">        System.out.println(instance6);</div><div class="line">        System.out.println(instance7);</div><div class="line">        System.out.println(instance8);</div><div class="line">        System.out.println(instance9);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="2-创建者模式"><a href="#2-创建者模式" class="headerlink" title="2. 创建者模式"></a>2. 创建者模式</h5><h6 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1. 定义"></a>2.1. 定义</h6><p>将一个复杂的对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。</p>
+<p><code>巧妙的封装了对象创建过程</code></p>
+<h6 id="2-2-构成"><a href="#2-2-构成" class="headerlink" title="2.2 构成"></a>2.2 构成</h6><ol>
+<li>Builder：为创建一个产品对象的各个部件指定抽象接口。</li>
+<li>oncreteBuilder：实现Builder的接口以构造和装配该产品的各个部件，定义并明确它所创建的表示，并提供一个检索产品的接口。</li>
+<li>Director：构造一个使用Builder接口的对象，指导构建过程。</li>
+<li>Product：表示被构造的复杂对象。ConcreteBuilder创建该产品的内部表示并定义它的装配过程，包含定义组成部件的类，包括将这些部件装配成最终产品的接口。</li>
+</ol>
+<h6 id="2-3-使用场景"><a href="#2-3-使用场景" class="headerlink" title="2.3 使用场景"></a>2.3 使用场景</h6><ol>
+<li>当产品有复杂的内部构造时（参数很多）。</li>
+<li>当对象创建频率较高的时候。</li>
+<li>需要生产的产品的属性相互依赖，这些属性的赋值顺序比较重要时。隔离复杂对象的创建和使用。</li>
+</ol>
+<h6 id="2-4-代码示例"><a href="#2-4-代码示例" class="headerlink" title="2.4 代码示例"></a>2.4 代码示例</h6><ol>
+<li><p>产品类 ， 假设需要组装一台电脑主机： CPU 、主板以及内存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public class Computer &#123;  </div><div class="line">    private String mCpu;  </div><div class="line">    private String mMainboard;  </div><div class="line">    private String mRam;  </div><div class="line">  </div><div class="line">    public void setmCpu(String mCpu) &#123;  </div><div class="line">        this.mCpu = mCpu;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public void setmMainboard(String mMainboard) &#123;  </div><div class="line">        this.mMainboard = mMainboard;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public void setmRam(String mRam) &#123;  </div><div class="line">        this.mRam = mRam;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Builder类，里面提供了安装CPU、主板和内存的抽象方法，以及组装成电脑的create方法。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public abstract class Builder &#123;  </div><div class="line">    public abstract void buildCpu(String cpu);  </div><div class="line">    public abstract void buildMainboard(String mainboard);  </div><div class="line">    public abstract void buildRam(String ram);  </div><div class="line">    public abstract Computer create();  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>Builder实现类: 不仅新建了Computer的实例，还提供了安装CPU、主板和内存的具体实现方法，并且在组装成电脑的create方法中将该Computer对象实例返回。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class MyComputerBuilder extends Builder &#123;  </div><div class="line">    private Computer mComputer = new Computer();  </div><div class="line">    @Override  </div><div class="line">    public void buildCpu(String cpu) &#123;  </div><div class="line">        mComputer.setmCpu(cpu);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    @Override  </div><div class="line">    public void buildMainboard(String mainboard) &#123;  </div><div class="line">        mComputer.setmMainboard(mainboard);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    @Override  </div><div class="line">    public void buildRam(String ram) &#123;  </div><div class="line">        mComputer.setmRam(ram);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    @Override  </div><div class="line">    public Computer create() &#123;  </div><div class="line">        return mComputer;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>Director类： 用来规范组装电脑的流程顺序，先安装主板，再安装CPU，最后安装内存并组装成电脑。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public class Direcror &#123;  </div><div class="line">    Builder mBuild=null;  </div><div class="line">    public Direcror(Builder build)&#123;  </div><div class="line">        this.mBuild=build;  </div><div class="line">    &#125;  </div><div class="line">    public Computer CreateComputer(String cpu,String mainboard,String ram)&#123;  </div><div class="line">        //规范建造流程，这个顺序是由它定的  </div><div class="line">       this.mBuild.buildMainboard(mainboard);  </div><div class="line">       this.mBuild.buildCpu(cpu);  </div><div class="line">       this.mBuild.buildRam(ram);  </div><div class="line">       return mBuild.create();  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用: </p>
+</li>
+</ol>
+<p>方法1.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Builder mBuilder = new MyComputerBuilder();  </div><div class="line">Direcror mDirecror=new Direcror(mBuilder);  </div><div class="line">mDirecror.CreateComputer(&quot;i7&quot;,&quot;Intel主板&quot;,&quot;mRam&quot;);//返回Computer实例对象</div></pre></td></tr></table></figure></p>
+<p>实际常用方法: 往往省去Director的角色，而直接使用一个Buider实例来进行对象的组装。这样控制属性的构建顺序更加灵活。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Computer computer = new MyComputerBuilder()</div><div class="line">                    .buildCpu(&quot;i5&quot;)</div><div class="line">                    .buildRam(&quot;8G&quot;)</div><div class="line">                    .buildMainboard(&quot;B85 3H&quot;)</div><div class="line">                    .create();</div></pre></td></tr></table></figure></p>
+<h6 id="2-5-优缺点"><a href="#2-5-优缺点" class="headerlink" title="2.5 优缺点"></a>2.5 优缺点</h6><ol>
+<li>优点<blockquote>
+<p>（1）建造模式是将复杂的内部创建封装在内部，对于外部调用的人来说，只需要传入建造者和建造工具，对于内部是如何建造成成品的，调用者无需关心，良好的封装性是建造者模式的优点之一。<br>（2）建造者类逻辑独立，易拓展。</p>
+</blockquote>
+</li>
+<li>缺点<br>很明显产生了多余的Build对象以及Dirextor对象，消耗了内存。</li>
+</ol>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="http://daibo.live/2017/12/设计模式学习/" data-id="cjbbvxril0007douc3mzpqv2p" class="article-share-link">分享</a>
+            
+            
+            
+        </footer>
+    </div>
+    
+        
+ <script src="/jquery/jquery.min.js"></script>
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+        
+<nav id="article-nav">
+  
+    <a href="/2017/12/wpt-API-doc/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          wpt-API-doc
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+    
+</article>
+ 
+         
+    
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、概述与分类"><span class="toc-number">1.</span> <span class="toc-text">一、概述与分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-什么是设计模式"><span class="toc-number">1.1.</span> <span class="toc-text">1. 什么是设计模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-分类"><span class="toc-number">1.2.</span> <span class="toc-text">2. 分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-创建型-：-创建对象"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 创建型 ： 创建对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-结构型模式-：-帮助我们创造和使用复杂的结构"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 结构型模式 ： 帮助我们创造和使用复杂的结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-行为型模式-：-描述了对象在系统中的通信方式和程序的逻辑控制流"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 行为型模式 ： 描述了对象在系统中的通信方式和程序的逻辑控制流</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-学习细则"><span class="toc-number">1.3.</span> <span class="toc-text">3. 学习细则</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-单例模式"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. 单例模式</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-1-定义："><span class="toc-number">1.3.1.1.</span> <span class="toc-text">1.1. 定义：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-2-结构："><span class="toc-number">1.3.1.2.</span> <span class="toc-text">1.2. 结构：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-3-分类："><span class="toc-number">1.3.1.3.</span> <span class="toc-text">1.3. 分类：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-4-代码"><span class="toc-number">1.3.1.4.</span> <span class="toc-text">1.4 代码</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-5-多线程下的问题展示"><span class="toc-number">1.3.1.5.</span> <span class="toc-text">1.5. 多线程下的问题展示</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-6-扩展"><span class="toc-number">1.3.1.6.</span> <span class="toc-text">1.6. 扩展</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-创建者模式"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. 创建者模式</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#2-1-定义"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">2.1. 定义</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-2-构成"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">2.2 构成</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-3-使用场景"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">2.3 使用场景</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-4-代码示例"><span class="toc-number">1.3.2.4.</span> <span class="toc-text">2.4 代码示例</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-5-优缺点"><span class="toc-number">1.3.2.5.</span> <span class="toc-text">2.5 优缺点</span></a></li></ol></li></ol></li></ol></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+    <!--微信公众号二维码-->
+
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2017 Divers King&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;lywber@163.com
+    </div>
+  </div>
+</footer>
+ <script src="/jquery/jquery.min.js"></script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/2017/04/about-me" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+  
+
+  
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ <script src="/js/is.js"></script>
+
+
+
+<script src="/js/script.js"></script>
+<script src="/js/elevator.js"></script>
+  </div>
+</body>
+</html>
