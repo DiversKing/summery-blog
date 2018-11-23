@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/bitbug_favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/bitbug_favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一切为了更好的编程 意义在于方便交流其实是为了更好的装逼    学习资料只是个菜谱。要做好这道菜，还需要认真理解，多加实践。   什么是设计模式设计模式是一些编程方式，用来解决某一类特殊问题的一种最佳实践。 就是对编程手法的一种特定总结 分类 创建型模式 结构型模式 行为型模式  创建型 作用：创建对象   构建者模式 工厂模式 原型模式 单例模式    结构型模式 作用：帮助我们创造和使用复杂">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式学习">
+<meta property="og:url" content="http://daibo.live/2017/12/design-mode/index.html">
+<meta property="og:site_name" content="流云唯变">
+<meta property="og:description" content="一切为了更好的编程 意义在于方便交流其实是为了更好的装逼    学习资料只是个菜谱。要做好这道菜，还需要认真理解，多加实践。   什么是设计模式设计模式是一些编程方式，用来解决某一类特殊问题的一种最佳实践。 就是对编程手法的一种特定总结 分类 创建型模式 结构型模式 行为型模式  创建型 作用：创建对象   构建者模式 工厂模式 原型模式 单例模式    结构型模式 作用：帮助我们创造和使用复杂">
+<meta property="og:updated_time" content="2018-11-23T10:24:41.843Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式学习">
+<meta name="twitter:description" content="一切为了更好的编程 意义在于方便交流其实是为了更好的装逼    学习资料只是个菜谱。要做好这道菜，还需要认真理解，多加实践。   什么是设计模式设计模式是一些编程方式，用来解决某一类特殊问题的一种最佳实践。 就是对编程手法的一种特定总结 分类 创建型模式 结构型模式 行为型模式  创建型 作用：创建对象   构建者模式 工厂模式 原型模式 单例模式    结构型模式 作用：帮助我们创造和使用复杂">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://daibo.live/2017/12/design-mode/"/>
+
+
+
+
+
+  <title>设计模式学习 | 流云唯变</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">流云唯变</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://daibo.live/2017/12/design-mode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Divers King">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="流云唯变">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">设计模式学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-15T11:05:40+08:00">
+                2017-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+          
+          
+              <span class="post-updated">
+                &nbsp; | &nbsp; 更新于
+                <time itemprop="dateUpdated" datetime="2018-11-23T18:24:41+08:00" content="2018-11-23">
+                  2018-11-23
+                </time>
+              </span>
+          
+
+          
+
+          
+
+          
+          
+             <span id="/2017/12/design-mode/" class="leancloud_visitors" data-flag-title="设计模式学习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> <strong>一切为了更好的编程</strong><br> <em>意义在于方便交流</em><br><code>其实是为了更好的装逼</code>  </p>
+<blockquote>
+<p>学习资料只是个菜谱。要做好这道菜，还需要认真理解，多加实践。</p>
+</blockquote>
+<hr>
+<h3 id="什么是设计模式"><a href="#什么是设计模式" class="headerlink" title="什么是设计模式"></a>什么是设计模式</h3><p>设计模式是一些编程方式，用来解决某一类特殊问题的一种最佳实践。</p>
+<p><code>就是对编程手法的一种特定总结</code></p>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
+<li>创建型模式</li>
+<li>结构型模式</li>
+<li>行为型模式</li>
+</ul>
+<h5 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h5><blockquote>
+<p>作用：创建对象</p>
+</blockquote>
+<ol>
+<li>构建者模式</li>
+<li>工厂模式</li>
+<li>原型模式</li>
+<li>单例模式  </li>
+</ol>
+<h5 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h5><blockquote>
+<p>作用：帮助我们创造和使用复杂的结构</p>
+</blockquote>
+<ol>
+<li>适配器模式</li>
+<li>桥接模式</li>
+<li>组合模式</li>
+<li>装饰模式</li>
+<li>外观模式</li>
+<li>代理模式</li>
+</ol>
+<h5 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h5><blockquote>
+<p>作用：描述了对象在系统中的通信方式和程序的逻辑控制流</p>
+</blockquote>
+<ol>
+<li>命令模式</li>
+<li>迭代器模式</li>
+<li>观察者模式</li>
+<li>状态模式</li>
+<li>策略模式</li>
+<li>模板方法模式</li>
+</ol>
+<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><blockquote>
+<p>单例模式在程序设计中非常的常见，一般来说，某些类，我们希望在程序运行期间有且只有一个实例，原因可能是该类的创建需要消耗系统过多的资源、花费很多的时间，或者业务上客观就要求了只能有一个实例。</p>
+<p>常用场景：我们的应用程序有一些配置文件，我们希望只在系统启动的时候读取这些配置文件，并将这些配置保存在内存中，以后在程序中使用这些配置文件信息的时候不必再重新读取。</p>
+</blockquote>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><pre><code>由于某种需要，要保证一个类在程序的生命周期当中只有一个实例，并且提供该实例的全局访问方法。
+</code></pre><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><p>　　一般包含三个要素：</p>
+<p>　　1.私有的静态的实例对象 private static instance</p>
+<p>　　2.私有的构造函数（保证在该类外部，无法通过new的方式来创建对象实例） private Singleton(){}</p>
+<p>　　3.公有的、静态的、访问该实例对象的方法 public static Singleton getInstance(){}</p>
+<h4 id="分类："><a href="#分类：" class="headerlink" title="分类："></a>分类：</h4><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>概念</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>懒汉</td>
+<td>调用时才创建实例, 以时间换空间</td>
+<td>体现了延迟加载的思想,可以尽可能的节省系统资源</td>
+<td>无锁状态下，如果多个线程同时调用，很有可能会产生多个实例；为保证多线程安全，需要加锁同步，同步会导致争夺锁资源，影响效率。</td>
+</tr>
+<tr>
+<td>饥汉</td>
+<td>应用启动时创建实例,以空间换时间</td>
+<td>写法简单，在多线程下也能保证单例实例的唯一性，不用同步，运行效率高</td>
+<td>预先支配了空间资源</td>
+</tr>
+</tbody>
+</table>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ol>
+<li>懒汉型</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> singleton;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 懒汉式单例类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazySingleton</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//私有化构造函数，防止在该类外部通过new的形式创建实例</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">LazySingleton</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"生成LazySingleton实例一次！"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//私有的、静态的实例，设置为私有的防止外部直接访问该实例变量，设置为静态的，说明该实例是LazySingleton类型的唯一的</span></div><div class="line">    <span class="comment">//若开始时，没有调用访问实例的方法，那么实例就不会自己创建</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> LazySingleton lazyInstance = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="comment">//公有的访问单例实例的方法，当外部调用访问该实例的方法时，实例才被创建</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LazySingleton <span class="title">getLazyInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//若实例还没有创建，则创建实例；若实例已经被创建了，则直接返回之前创建的实例,即不会返回2个实例</span></div><div class="line">        <span class="keyword">if</span> (lazyInstance == <span class="keyword">null</span>) &#123;</div><div class="line">            lazyInstance = <span class="keyword">new</span> LazySingleton();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> lazyInstance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>饥汉型</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> singleton;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NoLazySingleton</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//私有化构造函数，防止在该类外部通过new的形式创建实例</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">NoLazySingleton</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"创建NoLazySingleton实例一次！"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//私有的、静态的实例，设置为私有的防止外部直接访问该实例变量，设置为静态的，说明该实例是LazySingleton类型的唯一的</span></div><div class="line">    <span class="comment">//当系统加载NoLazySingleton类文件的时候，就创建了该类的实例</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> NoLazySingleton instance = <span class="keyword">new</span> NoLazySingleton();</div><div class="line"></div><div class="line">    <span class="comment">//公有的访问单例实例的方法</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> NoLazySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="多线程下的问题展示"><a href="#多线程下的问题展示" class="headerlink" title="多线程下的问题展示"></a>多线程下的问题展示</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> singleton;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonTest</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">             <span class="keyword">new</span> Thread()&#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                    LazySingleton.getLazyInstance();</div><div class="line">                &#125;</div><div class="line">            &#125;.start();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>就说2个线程同时访问上面的懒汉式单例，现在有两个线程A和B同时访问LazySingleton.getLazyInstance()方法。</p>
+<p>假设A先得到CPU的时间切片，A执行到21行处 if (lazyInstance == null) 时，由于lazyInstance 之前并没有实例化，所以lazyInstance == null为true,在还没有执行22行实例创建的时候</p>
+<p>此时CPU将执行时间分给了线程B，线程B执行到21行处 if (lazyInstance == null) 时，由于lazyInstance 之前并没有实例化，所以lazyInstance == null为true，线程B继续往下执行实例的创建过程，线程B创建完实例之后，返回。</p>
+<p>此时CPU将时间切片分给线程A，线程A接着开始执行22行实例的创建，实例创建完之后便返回。由此看线程A和线程B分别创建了一个实例（存在2个实例了），这就导致了单例的失效。</p>
+</blockquote>
+<p>线程安全的懒汉代码示例1： </p>
+<p>使用锁机制，可能引起线程阻塞</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> singleton;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SafeLazySingleton</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SafeLazySingleton</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"生成SafeLazySingleton实例一次！"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SafeLazySingleton instance = <span class="keyword">null</span>;</div><div class="line">　　 <span class="comment">//1.对整个访问实例的方法进行同步</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> SafeLazySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</div><div class="line">            instance = <span class="keyword">new</span> SafeLazySingleton();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">　　　　<span class="comment">//2.对必要的代码块进行同步</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SafeLazySingleton <span class="title">getInstance1</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">synchronized</span> (SafeLazySingleton.class)&#123;</div><div class="line">                <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</div><div class="line">                    instance = <span class="keyword">new</span> SafeLazySingleton();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>线程安全的懒汉代码示例2：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> singleton;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GracefulSingleton</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">GracefulSingleton</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"创建GracefulSingleton实例一次！"</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">      <span class="comment">//类级的内部类，也就是静态的成员式内部类，该内部类的实例与外部类的实例没有绑定关系，而且只有被调用到才会装载，从而实现了延迟加载</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHoder</span></span>&#123;</div><div class="line">　　　　　　　<span class="comment">//静态初始化器，由JVM来保证线程安全</span></div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> GracefulSingleton instance = <span class="keyword">new</span> GracefulSingleton();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> GracefulSingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> SingletonHoder.instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>使用一个内部类来维护单例类的实例，当GracefulSingleton被加载的时候，其内部类并不会被初始化，所以可以保证当GracefulSingleton被装载到JVM的时候，不会实例化单例类，当外部调用getInstance方法的时候，才会加载内部类SingletonHoder，从而实例化instance,同时由于实例的建立是在类初始化时完成的，所以天生对多线程友好，getInstance方法也不需要进行同步。</p>
+</blockquote>
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><p>单例模式本质上是控制单例类的实例数量只有一个，有些时候我们可能想要某个类特定数量的实例，这种情况可以看做是单例模式的一种扩展情况。比如我们希望下面的类SingletonExtend只有三个实例，我们可以利用Map来缓存这些实例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> singleton;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.HashMap;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonExtend</span> </span>&#123;</div><div class="line">    <span class="comment">//装载SingletonExtend实例的容器</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String,SingletonExtend&gt; container = <span class="keyword">new</span> HashMap&lt;String, SingletonExtend&gt;();</div><div class="line">    <span class="comment">//SingletonExtend类最多拥有的实例数量</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_NUM = <span class="number">3</span>;</div><div class="line">    <span class="comment">//实例容器中元素的key的开始值</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String CACHE_KEY_PRE = <span class="string">"cache"</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> initNumber = <span class="number">1</span>;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SingletonExtend</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"创建SingletonExtend实例1次！"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//先从容器中获取实例，若实例不存在，在创建实例，然后将创建好的实例放置在容器中</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonExtend <span class="title">getInstance</span><span class="params">()</span></span>&#123;</div><div class="line">        String key = CACHE_KEY_PRE+ initNumber;</div><div class="line">        SingletonExtend singletonExtend = container.get(key);</div><div class="line">        <span class="keyword">if</span> (singletonExtend == <span class="keyword">null</span>) &#123;</div><div class="line">            singletonExtend = <span class="keyword">new</span> SingletonExtend();</div><div class="line">            container.put(key,singletonExtend);</div><div class="line">        &#125;</div><div class="line">        initNumber++;</div><div class="line">        <span class="comment">//控制容器中实例的数量</span></div><div class="line">        <span class="keyword">if</span> (initNumber &gt; <span class="number">3</span>) &#123;</div><div class="line">            initNumber = <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> singletonExtend;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        SingletonExtend instance = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance1 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance2 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance3 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance4 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance5 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance6 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance7 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance8 = SingletonExtend.getInstance();</div><div class="line">        SingletonExtend instance9 = SingletonExtend.getInstance();</div><div class="line">        System.out.println(instance);</div><div class="line">        System.out.println(instance1);</div><div class="line">        System.out.println(instance2);</div><div class="line">        System.out.println(instance3);</div><div class="line">        System.out.println(instance4);</div><div class="line">        System.out.println(instance5);</div><div class="line">        System.out.println(instance6);</div><div class="line">        System.out.println(instance7);</div><div class="line">        System.out.println(instance8);</div><div class="line">        System.out.println(instance9);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="创建者模式"><a href="#创建者模式" class="headerlink" title="创建者模式"></a>创建者模式</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>将一个复杂的对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。巧妙的封装了对象创建过程</p>
+<h4 id="构成"><a href="#构成" class="headerlink" title="构成"></a>构成</h4><ol>
+<li>Builder：为创建一个产品对象的各个部件指定抽象接口。</li>
+<li>concreteBuilder：实现Builder的接口以构造和装配该产品的各个部件，定义并明确它所创建的表示，并提供一个检索产品的接口。</li>
+<li>Director：构造一个使用Builder接口的对象，指导构建过程。</li>
+<li>Product：表示被构造的复杂对象。ConcreteBuilder创建该产品的内部表示并定义它的装配过程，包含定义组成部件的类，包括将这些部件装配成最终产品的接口。</li>
+</ol>
+<h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><ol>
+<li>当产品有复杂的内部构造时（参数很多）。</li>
+<li>当对象创建频率较高的时候。</li>
+<li>需要生产的产品的属性相互依赖，这些属性的赋值顺序比较重要时。隔离复杂对象的创建和使用。</li>
+</ol>
+<h4 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h4><ol>
+<li>产品类</li>
+</ol>
+<p>假设需要组装一台电脑主机： CPU 、主板以及内存</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Computer</span> </span>&#123;  </div><div class="line">    <span class="keyword">private</span> String mCpu;  </div><div class="line">    <span class="keyword">private</span> String mMainboard;  </div><div class="line">    <span class="keyword">private</span> String mRam;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setmCpu</span><span class="params">(String mCpu)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.mCpu = mCpu;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setmMainboard</span><span class="params">(String mMainboard)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.mMainboard = mMainboard;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setmRam</span><span class="params">(String mRam)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.mRam = mRam;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>Builder类</li>
+</ol>
+<p>里面提供了安装CPU、主板和内存的抽象方法，以及组装成电脑的create方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Builder</span> </span>&#123;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">buildCpu</span><span class="params">(String cpu)</span></span>;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">buildMainboard</span><span class="params">(String mainboard)</span></span>;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">buildRam</span><span class="params">(String ram)</span></span>;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Computer <span class="title">create</span><span class="params">()</span></span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>Builder实现类</li>
+</ol>
+<p>不仅新建了Computer的实例，还提供了安装CPU、主板和内存的具体实现方法，并且在组装成电脑的create方法中将该Computer对象实例返回。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyComputerBuilder</span> <span class="keyword">extends</span> <span class="title">Builder</span> </span>&#123;  </div><div class="line">    <span class="keyword">private</span> Computer mComputer = <span class="keyword">new</span> Computer();  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildCpu</span><span class="params">(String cpu)</span> </span>&#123;  </div><div class="line">        mComputer.setmCpu(cpu);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildMainboard</span><span class="params">(String mainboard)</span> </span>&#123;  </div><div class="line">        mComputer.setmMainboard(mainboard);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildRam</span><span class="params">(String ram)</span> </span>&#123;  </div><div class="line">        mComputer.setmRam(ram);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> Computer <span class="title">create</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> mComputer;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>Director类</li>
+</ol>
+<p>用来规范组装电脑的流程顺序，先安装主板，再安装CPU，最后安装内存并组装成电脑。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Direcror</span> </span>&#123;  </div><div class="line">    Builder mBuild=<span class="keyword">null</span>;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Direcror</span><span class="params">(Builder build)</span></span>&#123;  </div><div class="line">        <span class="keyword">this</span>.mBuild=build;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> Computer <span class="title">CreateComputer</span><span class="params">(String cpu,String mainboard,String ram)</span></span>&#123;  </div><div class="line">        <span class="comment">//规范建造流程，这个顺序是由它定的  </span></div><div class="line">       <span class="keyword">this</span>.mBuild.buildMainboard(mainboard);  </div><div class="line">       <span class="keyword">this</span>.mBuild.buildCpu(cpu);  </div><div class="line">       <span class="keyword">this</span>.mBuild.buildRam(ram);  </div><div class="line">       <span class="keyword">return</span> mBuild.create();  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>使用</li>
+</ol>
+<p>方法1:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Builder mBuilder = <span class="keyword">new</span> MyComputerBuilder();  </div><div class="line">Direcror mDirecror=<span class="keyword">new</span> Direcror(mBuilder);  </div><div class="line">mDirecror.CreateComputer(<span class="string">"i7"</span>,<span class="string">"Intel主板"</span>,<span class="string">"mRam"</span>);<span class="comment">//返回Computer实例对象</span></div></pre></td></tr></table></figure>
+<p>方法2: </p>
+<p>往往省去Director的角色，而直接使用一个Buider实例来进行对象的组装。这样控制属性的构建顺序更加灵活。实际常用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Computer computer = <span class="keyword">new</span> MyComputerBuilder()</div><div class="line">                    .buildCpu(<span class="string">"i5"</span>)</div><div class="line">                    .buildRam(<span class="string">"8G"</span>)</div><div class="line">                    .buildMainboard(<span class="string">"B85 3H"</span>)</div><div class="line">                    .create();</div></pre></td></tr></table></figure>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><ol>
+<li>优点</li>
+</ol>
+<p>1.1 建造模式是将复杂的内部创建封装在内部，对于外部调用的人来说，只需要传入建造者和建造工具，对于内部是如何建造成成品的，调用者无需关心，良好的封装性是建造者模式的优点之一。</p>
+<p>1.2 建造者类逻辑独立，易拓展。</p>
+<ol>
+<li>缺点   </li>
+</ol>
+<p>很明显产生了多余的Build对象以及Dirextor对象，消耗了内存。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/UML类图说明/" rel="prev" title="UML类图说明">
+                UML类图说明 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Divers King</p>
+              <p class="site-description motion-element" itemprop="description">爱学习，爱劳动，讲文明</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/diversking" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lywber@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是设计模式"><span class="nav-number">1.</span> <span class="nav-text">什么是设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类"><span class="nav-number">1.1.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建型"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#结构型模式"><span class="nav-number">1.1.2.</span> <span class="nav-text">结构型模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#行为型模式"><span class="nav-number">1.1.3.</span> <span class="nav-text">行为型模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单例模式"><span class="nav-number">2.</span> <span class="nav-text">单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结构"><span class="nav-number">2.2.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类："><span class="nav-number">2.3.</span> <span class="nav-text">分类：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">2.4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多线程下的问题展示"><span class="nav-number">2.5.</span> <span class="nav-text">多线程下的问题展示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展"><span class="nav-number">2.6.</span> <span class="nav-text">扩展</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建者模式"><span class="nav-number">3.</span> <span class="nav-text">创建者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-1"><span class="nav-number">3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构成"><span class="nav-number">3.2.</span> <span class="nav-text">构成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用场景"><span class="nav-number">3.3.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码示例"><span class="nav-number">3.4.</span> <span class="nav-text">代码示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优缺点"><span class="nav-number">3.5.</span> <span class="nav-text">优缺点</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Divers King</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'cuPEJrf7EjTjhL2w72AI26hy-gzGzoHsz',
+        appKey: '8K9xREEBhzV0WxxrK0Ciwowh',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("cuPEJrf7EjTjhL2w72AI26hy-gzGzoHsz", "8K9xREEBhzV0WxxrK0Ciwowh");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
